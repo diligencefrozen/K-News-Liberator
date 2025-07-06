@@ -19,7 +19,7 @@
   ],
   "background": {
     "service_worker": "service_worker.js",
-    "type": "module"              // ES 모듈 사용 시 필요
+    "type": "module"              
   },
   "content_scripts": [
     {
