@@ -1,8 +1,164 @@
-<!-- popup/popup.html -->
 <!DOCTYPE html>
-<html>
-<body style="min-width:160px;padding:10px;font-family:sans-serif">
-  <label><input type="checkbox" id="toggle"> 리다이렉트 활성화</label>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>News Bridge</title>
+
+  <!-- Google Font (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- 공통 설정 ---------- */
+    :root {
+      --radius: 14px;
+      --pad: 18px;
+      --accent: #4f7cff;
+      --glass-bg: rgba(255, 255, 255, 0.25);
+      --glass-blur: 10px;
+      --text-main: #0f1117;
+      --text-sub:  #3b4048;
+      --shadow: 12px 12px 24px rgba(0,0,0,0.15),
+                -12px -12px 24px rgba(255,255,255,0.7);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --glass-bg: rgba(18, 18, 24, 0.35);
+        --text-main: #e5e7eb;
+        --text-sub:  #9ca3af;
+        --shadow: 8px 8px 20px rgba(0,0,0,0.7),
+                  -8px -8px 20px rgba(60,60,60,0.3);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html,body{
+      width:240px;                    /* 팝업 기본 폭 */
+      margin:0;
+      font-family: 'Inter', sans-serif;
+      color:var(--text-main);
+      background:
+        linear-gradient(145deg,#f0f0f3 0%,#d9dbdf 100%);
+    }
+
+    body{
+      padding:var(--pad);
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
+
+    /* ---------- 타이틀 ---------- */
+    h1{
+      margin:0;
+      font-size:16px;
+      font-weight:600;
+      line-height:1.3;
+      text-align:center;
+    }
+
+    h1 span{
+      display:block;
+      font-size:11px;
+      font-weight:400;
+      color:var(--text-sub);
+      margin-top:4px;
+    }
+
+    /* ---------- 카드 ---------- */
+    .card{
+      width:100%;
+      padding:18px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-radius:var(--radius);
+      background:var(--glass-bg);
+      backdrop-filter:blur(var(--glass-blur));
+      box-shadow:var(--shadow);
+    }
+
+    /* ---------- 스위치 ---------- */
+    .switch{
+      position:relative;
+      width:50px;
+      height:26px;
+    }
+
+    .switch input{
+      opacity:0;
+      width:0;
+      height:0;
+    }
+
+    .slider{
+      position:absolute;
+      cursor:pointer;
+      inset:0;
+      background:#c2c6d1;
+      border-radius:34px;
+      transition:background 0.3s;
+    }
+
+    .slider:before{
+      content:"";
+      position:absolute;
+      height:22px;
+      width:22px;
+      left:2px;
+      top:2px;
+      background:white;
+      border-radius:50%;
+      box-shadow:0 2px 4px rgba(0,0,0,0.3);
+      transition:transform 0.32s cubic-bezier(.4,0,.2,1);
+    }
+
+    input:checked + .slider{
+      background:var(--accent);
+    }
+
+    input:checked + .slider:before{
+      transform:translateX(24px);
+    }
+
+    /* ---------- 푸터 링크 ---------- */
+    footer{
+      text-align:center;
+      font-size:11px;
+      color:var(--text-sub);
+    }
+    footer a{
+      color:var(--accent);
+      text-decoration:none;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>
+    한국 포털 뉴스 차단&nbsp;활성화!
+    <span>News&nbsp;Bridge&nbsp;v1.0</span>
+  </h1>
+
+  <div class="card">
+    <div>
+      <strong>Redirect</strong><br />
+      <small style="color:var(--text-sub);">Google News로 이동</small>
+    </div>
+
+    <!-- 토글 스위치 -->
+    <label class="switch">
+      <input type="checkbox" id="toggle" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <footer>
+    <a href="options/options.html" target="_blank">설정 열기</a>
+  </footer>
+
   <script src="popup.js"></script>
 </body>
 </html>
