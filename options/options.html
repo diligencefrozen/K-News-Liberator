@@ -1,15 +1,207 @@
-<!-- options/options.html -->
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><title>News Bridge 설정</title></head>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>K-News-Liberator – 설정</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- 디자인 변수 ---------- */
+    :root {
+      --radius: 14px;
+      --pad: 20px;
+      --accent: #4f7cff;
+      --glass-bg: rgba(255, 255, 255, 0.28);
+      --glass-blur: 10px;
+      --shadow: 14px 14px 28px rgba(0,0,0,0.15),
+                -14px -14px 28px rgba(255,255,255,0.6);
+      --text-main: #0f1117;
+      --text-sub:  #525760;
+      --bg-grad:   linear-gradient(145deg,#eef1f5 0%,#e2e4ea 100%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --glass-bg: rgba(30, 32, 40, 0.35);
+        --shadow: 10px 10px 22px rgba(0,0,0,0.7),
+                  -10px -10px 22px rgba(60,60,60,0.3);
+        --text-main: #e5e7eb;
+        --text-sub:  #9ca3af;
+        --bg-grad:   linear-gradient(145deg,#1c1d24 0%,#21232b 100%);
+      }
+    }
+
+    *{ box-sizing:border-box; }
+
+    html,body{
+      margin:0;
+      min-width:320px;
+      font-family:'Inter',sans-serif;
+      color:var(--text-main);
+      background:var(--bg-grad);
+    }
+
+    body{
+      padding:var(--pad);
+      display:flex;
+      flex-direction:column;
+      gap:26px;
+    }
+
+    /* ---------- 헤더 ---------- */
+    h1{
+      margin:0;
+      font-size:20px;
+      font-weight:600;
+      text-align:center;
+      line-height:1.3;
+    }
+    h1 span{
+      display:block;
+      font-size:12px;
+      font-weight:400;
+      color:var(--text-sub);
+      margin-top:4px;
+    }
+
+    /* ---------- 카드 공통 ---------- */
+    .card{
+      padding:22px 18px;
+      border-radius:var(--radius);
+      background:var(--glass-bg);
+      backdrop-filter:blur(var(--glass-blur));
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    label{ font-size:14px; }
+
+    input[type="number"],
+    textarea{
+      width:100%;
+      padding:10px 12px;
+      border:none;
+      border-radius:8px;
+      font-size:14px;
+      font-family:'Inter',sans-serif;
+      color:var(--text-main);
+      background:rgba(255,255,255,0.65);
+      backdrop-filter:blur(6px);
+    }
+    @media (prefers-color-scheme: dark){
+      input[type="number"],
+      textarea{
+        background:rgba(40,42,50,0.55);
+        color:var(--text-main);
+      }
+    }
+
+    textarea{ resize:vertical; }
+
+    /* ---------- 토글 스위치 ---------- */
+    .switch{
+      position:relative;
+      width:54px;
+      height:30px;
+      margin-left:8px;
+      vertical-align:middle;
+    }
+    .switch input{ opacity:0;width:0;height:0; }
+    .slider{
+      position:absolute;
+      inset:0;
+      cursor:pointer;
+      background:#c4c7d2;
+      border-radius:34px;
+      transition:background .3s;
+    }
+    .slider:before{
+      content:"";
+      position:absolute;
+      height:24px;
+      width:24px;
+      left:3px; top:3px;
+      background:#fff;
+      border-radius:50%;
+      box-shadow:0 2px 4px rgba(0,0,0,0.3);
+      transition:transform .32s cubic-bezier(.4,0,.2,1);
+    }
+    input:checked + .slider{
+      background:var(--accent);
+    }
+    input:checked + .slider:before{
+      transform:translateX(24px);
+    }
+
+    /* ---------- 저장 버튼 ---------- */
+    #save{
+      align-self:center;
+      margin-top:6px;
+      padding:10px 26px;
+      font-size:14px;
+      font-weight:600;
+      color:#fff;
+      background:var(--accent);
+      border:none;
+      border-radius:var(--radius);
+      cursor:pointer;
+      box-shadow:0 3px 10px rgba(0,0,0,0.25);
+      transition:transform .15s;
+    }
+    #save:active{ transform:scale(0.96); }
+
+    /* ---------- 상태 메시지 ---------- */
+    #status{
+      display:block;
+      margin-top:8px;
+      text-align:center;
+      font-size:13px;
+      color:var(--accent);
+      min-height:18px;
+    }
+  </style>
+</head>
+
 <body>
-  <h1>설정</h1>
-  <label><input type="checkbox" id="enabled"> 활성화</label><br>
-  <label>카운트다운(초):
-    <input type="number" id="delay" min="1" max="30">
-  </label><br>
-  <h3>대상 도메인(줄바꿈 구분)</h3>
-  <textarea id="domains" rows="6" cols="40"></textarea><br>
+
+  <h1>
+    News&nbsp;Bridge&nbsp;설정
+    <span>한국 포털 차단 세부 옵션</span>
+  </h1>
+
+  <!-- 기본 설정 카드 -->
+  <div class="card">
+
+    <!-- 활성화 토글 -->
+    <label>
+      <input type="checkbox" id="enabled" hidden />
+      <span>확장 프로그램 활성화</span>
+      <span class="switch">
+        <input type="checkbox" id="enabled_clone" hidden />
+        <span class="slider"></span>
+      </span>
+    </label>
+
+    <!-- 카운트다운 -->
+    <label>
+      카운트다운&nbsp;(초)
+      <input type="number" id="delay" min="1" max="30" />
+    </label>
+
+  </div>
+
+  <!-- 도메인 카드 -->
+  <div class="card">
+    <label for="domains" style="font-weight:600;">대상 도메인 목록</label>
+    <small style="color:var(--text-sub);">줄바꿈으로 구분,편집하세요</small>
+    <textarea id="domains" rows="6"></textarea>
+  </div>
+
+  <!-- 저장 -->
   <button id="save">저장</button>
   <span id="status"></span>
 
