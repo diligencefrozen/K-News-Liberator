@@ -1,0 +1,18 @@
+<!-- options/options.html -->
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>News Bridge 설정</title></head>
+<body>
+  <h1>설정</h1>
+  <label><input type="checkbox" id="enabled"> 활성화</label><br>
+  <label>카운트다운(초):
+    <input type="number" id="delay" min="1" max="30">
+  </label><br>
+  <h3>대상 도메인(줄바꿈 구분)</h3>
+  <textarea id="domains" rows="6" cols="40"></textarea><br>
+  <button id="save">저장</button>
+  <span id="status"></span>
+
+  <script src="options.js"></script>
+</body>
+</html>
