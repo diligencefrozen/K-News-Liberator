@@ -1,27 +1,36 @@
 {
-    "name": "NNGN-NaverNewstoGoogleNews",
-    "description": "Force Naver News Page to Google News Page. It is designed for elderly South Koreans who only use Naver News.",
-    "version": "23.0719.1",
-    "manifest_version": 3,
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "images/icon16.png",
-        "48": "images/icon48.png",
-        "128": "images/icon128.png"
-      }
-    },
-    "permissions": [
-
-    ],
-    "host_permissions": [
-      "*://*.naver.com/*"
-    ],
-    "content_scripts": [
-      {
-        "matches": ["*://*.naver.com/*"],
-        "js": ["index.js"]
-      }
-    ]
-  }
-  
+  "manifest_version": 3,
+  "name": "News Bridge – Naver·Daum → Google News",
+  "version": "1.0.0",
+  "description": "국내 포털 뉴스를 열면 카운트다운 후 Google News로 안내합니다.",
+  "icons": {
+    "16":  "assets/icon_16.png",
+    "48":  "assets/icon_48.png",
+    "128": "assets/icon_128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://news.naver.com/*",
+    "https://n.news.naver.com/*",
+    "https://news.daum.net/*",
+    "https://news.zum.com/*",
+    "https://news.nate.com/*",
+    "https://www.dcnewsj.com/*"
+  ],
+  "background": {
+    "service_worker": "service_worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "News Bridge"
+  },
+  "options_page": "options/options.html"
+}
