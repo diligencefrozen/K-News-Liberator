@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "국내 포털 뉴스를 열면 카운트다운 후 Google News로 안내합니다.",
   "icons": {
-    "16":  "assets/icon_16.png",
-    "48":  "assets/icon_48.png",
+    "16": "assets/icon_16.png",
+    "48": "assets/icon_48.png",
     "128": "assets/icon_128.png"
   },
   "permissions": ["storage"],
@@ -19,11 +19,18 @@
   ],
   "background": {
     "service_worker": "service_worker.js",
-    "type": "module"
+    "type": "module"              // ES 모듈 사용 시 필요
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "https://news.naver.com/*",
+        "https://n.news.naver.com/*",
+        "https://news.daum.net/*",
+        "https://news.zum.com/*",
+        "https://news.nate.com/*",
+        "https://www.dcnewsj.com/*"
+      ],
       "js": ["content-script.js"],
       "run_at": "document_end"
     }
