@@ -1,14 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "News Bridge – Naver·Daum → Google News",
+  "name": "K-News-Liberator",
   "version": "1.0.0",
   "description": "국내 포털 뉴스를 열면 카운트다운 후 Google News로 안내합니다.",
   "icons": {
-    "16": "images/icon_16.png",
-    "48": "images/icon_48.png",
-    "128": "images/icon_128.png"
+    "16":  "images/icon16.png",
+    "48":  "images/icon48.png",
+    "128": "images/icon128.png"
   },
+
   "permissions": ["storage"],
+
   "host_permissions": [
     "https://news.naver.com/*",
     "https://n.news.naver.com/*",
@@ -17,10 +19,12 @@
     "https://news.nate.com/*",
     "https://www.dcnewsj.com/*"
   ],
+
   "background": {
     "service_worker": "service_worker.js",
-    "type": "module"              
+    "type": "module"
   },
+
   "content_scripts": [
     {
       "matches": [
@@ -35,9 +39,11 @@
       "run_at": "document_end"
     }
   ],
+
   "action": {
-    "default_popup": "popup/popup.html",
+    "default_popup": "popup.html",
     "default_title": "News Bridge"
   },
+
   "options_page": "options/options.html"
 }
