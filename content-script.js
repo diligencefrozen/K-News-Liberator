@@ -1,4 +1,4 @@
-// content-script.js  ── 미래지향적 글래스 UI
+// content-script.js 
 (async () => {
   /* 1. 현재 설정 로드 */
   const { enabled, delay = 5, domains = [] } = await chrome.storage.sync.get([
