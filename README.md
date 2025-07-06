@@ -8,7 +8,6 @@ Escape comment-driven opinion manipulation and enjoy a more neutral, personalize
     <img src="https://img.shields.io/chrome-web-store/v/nmedoidkbdkaaphkbdhmnjmekbcfbomn?logo=googlechrome" alt="Chrome Web Store">
   </a>
   <img src="https://img.shields.io/badge/License-MIT-informational" alt="MIT License">
-  <img src="https://img.shields.io/github/last-commit/your-id/k-news-liberator" alt="Last commit">
 </p>
 
 ---
