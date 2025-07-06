@@ -34,7 +34,7 @@ Escape comment-driven opinion manipulation and enjoy a more neutral, personalize
 ### Manual (for testing or development)
 
 ```bash
-git clone https://github.com/your-id/k-news-liberator.git
+git clone https://github.com/diligencefrozen/k-news-liberator.git
 chrome://extensions          # paste in the address bar
 # Enable “Developer mode”
 # Click “Load unpacked”
