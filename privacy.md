@@ -16,7 +16,7 @@ The extension operates entirely on the user’s device and sends no data to exte
 
 ## K-News-Liberator 개인정보 처리방침
 
-본 확장 프로그램은 이름, 이메일, 방문 기록 등 **어떠한 개인정보도 수집·전송하지 않습니다.**
+본 확장 프로그램은 이름, 이메일, 방문 기록 등 **어떠한 개인정보도 수집,전송하지 않습니다.**
 
 - 저장되는 정보: 활성화 여부, 카운트다운 초, 사용자 정의 도메인 목록  
 - 저장 위치: 사용자의 브라우저 내부 (`chrome.storage.sync`)  
