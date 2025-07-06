@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "description": "국내 포털 뉴스를 열면 카운트다운 후 Google News로 안내합니다.",
   "icons": {
-    "16": "assets/icon_16.png",
-    "48": "assets/icon_48.png",
-    "128": "assets/icon_128.png"
+    "16": "images/icon_16.png",
+    "48": "images/icon_48.png",
+    "128": "images/icon_128.png"
   },
   "permissions": ["storage"],
   "host_permissions": [
