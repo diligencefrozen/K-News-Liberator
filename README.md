@@ -4,7 +4,7 @@ Automatically redirects news pages opened on major Korean portals (Naver, Daum, 
 Escape comment-driven opinion manipulation and enjoy a more neutral, personalized news feed.
 
 <p align="center">
-  <a href="https://chromewebstore.google.com/detail/nngn-navernewstogooglenew/nmedoidkbdkaaphkbdhmnjmekbcfbomn">
+  <a href="https://chromewebstore.google.com/detail/k-news-liberator/hbflcddlolofbmohcjkelfboagmefghh?authuser=0&hl=en">
     <img src="https://img.shields.io/chrome-web-store/v/nmedoidkbdkaaphkbdhmnjmekbcfbomn?logo=googlechrome" alt="Chrome Web Store">
   </a>
   <img src="https://img.shields.io/badge/License-MIT-informational" alt="MIT License">
