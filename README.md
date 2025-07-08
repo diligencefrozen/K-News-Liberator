@@ -27,7 +27,7 @@ Escape comment-driven opinion manipulation and enjoy a more neutral, personalize
 
 ### Chrome Web Store (recommended)
 
-[**➡ Install on Chrome Web Store**](https://chromewebstore.google.com/detail/nngn-navernewstogooglenew/nmedoidkbdkaaphkbdhmnjmekbcfbomn)
+[**➡ Install on Chrome Web Store**](https://chromewebstore.google.com/detail/k-news-liberator/hbflcddlolofbmohcjkelfboagmefghh)
 
 ### Manual (for testing or development)
 
