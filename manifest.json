@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "K-News-Liberator",
-  "version": "1.1.0",
+  "version": "07132025.1",
   "description": "국내 포털 뉴스를 열면 카운트다운 후 Google News로 안내합니다.",
   "icons": {
     "16":  "images/icon16.png",
